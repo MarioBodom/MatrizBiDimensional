@@ -3,11 +3,13 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args) throws Exception {
         System.out.println("Hello, World!");
-        // Scanner sc = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         // int size = sc.nextInt();
         // String letra = sc.next();
         // cuadrado(size, letra);
-        matriz();
+        System.out.println("Dame un caracter para iniciar");
+        char caracter = sc.nextLine().toUpperCase().charAt(0);
+        matriz(caracter);
     }
 
     public static void cuadrado(int size, String letra) {
@@ -19,25 +21,32 @@ public class App {
         }
     }
 
-    public static void matriz() {
-        String matriz[][] = new String[5][5];
-        char caracter = 'L';
+    public static void matriz(char caracter) {
+        // char IJ = '7';
+        char matriz[][] = new char[5][5];
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz.length; j++) {
-                if (caracter == 'J') {
-                    caracter++;
-                }
+                // if (caracter == 'J') {
+                //     caracter++;
+                // }
+                
                 if (caracter > 'Z') {
                     caracter = 'A';
-                    matriz[i][j] = Character.toString(caracter);
+                    matriz[i][j] = caracter;
                     caracter++;
                 } else {
-                    matriz[i][j] = Character.toString(caracter);
-                    caracter++;
+                    if (caracter == 'I') {
+                        matriz[i][j] = 'Ñ';
+                        caracter++;
+                    }else{
+                        matriz[i][j] = caracter;
+                        caracter++;
+                    }
                 }
             }
         }
-        
+    
+    
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz.length; j++) {
                 System.out.print(matriz[i][j]+ " ");
