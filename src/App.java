@@ -13,6 +13,7 @@ public class App {
         System.out.println("Dame un número de columnas");
         int rows = sc.nextInt();
         piramide(rows);
+        sc.close();
     }
 
     public static void cuadrado(int size, String letra) {
